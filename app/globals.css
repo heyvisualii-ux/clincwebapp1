@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Surfaces & text */
+    --background: 40 33% 98%;
+    --foreground: 20 18% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 18% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 18% 14%;
+
+    /* Brand — muted rose */
+    --primary: 348 32% 56%;
+    --primary-foreground: 0 0% 100%;
+    --primary-soft: 350 40% 95%;
+
+    /* Secondary — warm taupe */
+    --secondary: 30 14% 92%;
+    --secondary-foreground: 20 18% 24%;
+
+    /* Accent — champagne gold */
+    --accent: 38 48% 88%;
+    --accent-foreground: 30 30% 24%;
+
+    --muted: 40 16% 94%;
+    --muted-foreground: 20 10% 42%;
+
+    --destructive: 4 70% 56%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 150 28% 48%;
+    --success-foreground: 0 0% 100%;
+    --success-soft: 150 30% 94%;
+
+    --warning: 38 82% 52%;
+    --warning-foreground: 30 40% 16%;
+    --warning-soft: 40 80% 94%;
+
+    --info: 205 60% 52%;
+    --info-foreground: 0 0% 100%;
+    --info-soft: 205 60% 94%;
+
+    --border: 30 16% 88%;
+    --input: 30 16% 86%;
+    --ring: 348 32% 56%;
+
+    /* Extended ramps */
+    --rose-50: 350 50% 97%;
+    --rose-100: 350 45% 94%;
+    --rose-200: 350 42% 88%;
+    --rose-300: 350 40% 80%;
+    --rose-400: 350 38% 68%;
+    --rose-500: 348 32% 56%;
+    --rose-600: 345 35% 46%;
+    --rose-700: 342 38% 38%;
+
+    --gold-50: 40 60% 97%;
+    --gold-100: 40 55% 93%;
+    --gold-200: 38 52% 87%;
+    --gold-300: 38 50% 78%;
+    --gold-400: 38 55% 66%;
+    --gold-500: 38 60% 54%;
+    --gold-600: 36 55% 44%;
+
+    --sand-50: 40 30% 97%;
+    --sand-100: 38 26% 93%;
+    --sand-200: 36 20% 86%;
+    --sand-300: 34 16% 76%;
+    --sand-400: 32 14% 56%;
+    --sand-500: 30 12% 42%;
+    --sand-600: 28 14% 32%;
+    --sand-700: 26 16% 24%;
+    --sand-800: 24 18% 18%;
+    --sand-900: 22 20% 12%;
+
+    --chart-1: 348 32% 56%;
+    --chart-2: 38 60% 54%;
+    --chart-3: 205 60% 52%;
+    --chart-4: 150 28% 48%;
+    --chart-5: 280 30% 60%;
+
+    --radius: 0.875rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "ss01", "cv01";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Persian numerals where useful */
+  .nums-fa {
+    font-feature-settings: "ss01";
+    font-variant-numeric: lining-nums;
+  }
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: var(--font-heading), "Noto Naskh Arabic", serif;
+  }
+  .font-body {
+    font-family: var(--font-body), "Vazirmatn", sans-serif;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .bg-grain {
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      hsl(var(--foreground) / 0.025) 1px,
+      transparent 0
+    );
+    background-size: 22px 22px;
+  }
+  .glass {
+    background: hsl(var(--card) / 0.7);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+  }
+  .shadow-luxe {
+    box-shadow:
+      0 1px 2px hsl(var(--foreground) / 0.04),
+      0 8px 24px -8px hsl(348 32% 56% / 0.12),
+      0 2px 8px -4px hsl(var(--foreground) / 0.06);
+  }
+  .shadow-soft {
+    box-shadow:
+      0 1px 2px hsl(var(--foreground) / 0.03),
+      0 4px 16px -6px hsl(var(--foreground) / 0.08);
+  }
+  .gradient-luxe {
+    background-image: linear-gradient(
+      135deg,
+      hsl(var(--rose-50)) 0%,
+      hsl(var(--gold-50)) 100%
+    );
+  }
+  .gradient-rose {
+    background-image: linear-gradient(
+      135deg,
+      hsl(var(--rose-400)) 0%,
+      hsl(var(--rose-600)) 100%
+    );
+  }
+  .text-gradient-rose {
+    background-image: linear-gradient(
+      135deg,
+      hsl(var(--rose-500)) 0%,
+      hsl(var(--gold-500)) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer base {
+  /* Elegant scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--sand-200));
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--sand-300));
+    background-clip: padding-box;
+  }
+}
+
+/* Smooth reveal animation utility */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-up {
+  animation: fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.animate-shimmer {
+  animation: shimmer 1.8s infinite;
+}
